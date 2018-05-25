@@ -1,0 +1,29 @@
+.fileUpload{
+  padding: 10px 0px;
+}
+
+.fileUpload label{
+  margin: 6px, 0px;
+}
+
+.fileUpload input{
+  margin: 0 0 6px 0;
+  font-size: 13px;
+}
+
+.loader {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  float: left;
+  margin: 0 5px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
