@@ -35,12 +35,12 @@ class FileUploader extends Component {
 
   render() {
     return (
-      <div class="fileUpload">
+      <div className="fileUpload">
         <label>{this.props.title}</label>
-        <div class="itemUpload">
-          {this.state.showLoader ? <div class="loader"></div> : null}
+        <div className="itemUpload">
+          {this.state.showLoader ? <div className="loader"></div> : null}
           <input type="file" name="fileUpload" onChange={this.uploadFile} />
-        </div>
+        </div>  
       </div>
     );
   }
