@@ -28,11 +28,28 @@ and specify the callback function you want to call when the file is loaded.
 
 While the file is loading, you'll see a loading throbber.
 
+For example:
+```
+<FileUploader
+  title="Please upload the Re Enrollment csv file"
+  uploadedFileCallback={e => {
+    this.uploadedCsv(e);
+  }}
+/>
+```
+
+And then define the callback function
+
 ```
 uploadedCsv(fileData) {
     console.log(fileData);
     //Do stuff with the loaded file data
 }
 ```
+
+Props available:
+* title (title that will have the upload component section as a label)
+* uploadedFileCallback (callback function that will be invoked)
+
 # License 
 MIT
