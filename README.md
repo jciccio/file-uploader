@@ -31,7 +31,7 @@ While the file is loading, you'll see a loading throbber.
 For example:
 ```
 <FileUploader
-  title="Please upload the Re Enrollment csv file"
+  title="Please upload a CSV file"
   uploadedFileCallback={e => {
     this.uploadedCsv(e);
   }}
