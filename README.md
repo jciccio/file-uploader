@@ -1,5 +1,5 @@
 # file-uploader
-React File Uploader Component
+React JS File Uploader Component
 
 # Description
 
@@ -28,7 +28,8 @@ and specify the callback function you want to call when the file is loaded.
 While the file is loading, you'll see a loading throbber.
 
 For example:
-```
+
+```javascript
 <FileUploader
   title="Please upload a CSV file"
   uploadedFileCallback={e => {
@@ -39,7 +40,7 @@ For example:
 
 And then define the callback function
 
-```
+```javascript
 uploadedCsv(fileData) {
     console.log(fileData);
     //Do stuff with the loaded file data
@@ -52,8 +53,14 @@ Props available:
 
 Optionally you can handle errors with the following props:
 
-* onErrorCallback (Error uploading and reading the file)
-* onAbortCallback (Operation aborted)
+* `onErrorCallback` (Error uploading and reading the file)
+* `onAbortCallback` (Operation aborted)
+
+# Changelog
+
+### v0.1.8
+* Added support for abort and error handling
+
 
 # License 
 
