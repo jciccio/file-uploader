@@ -8,7 +8,7 @@ class FileUploader extends Component {
     super(props);
     this.uploadFile = this.uploadFile.bind(this);
     this.state = {
-      content: "",
+      content: null,
       showLoader: false
     };
   }
@@ -24,6 +24,17 @@ class FileUploader extends Component {
         context.saveContents(contents);
         context.setState({showLoader: false});
       };
+      reader.onerror = function(e) {
+        if(this.props.onErrorCallback){
+          this.props.onErrorCallback(e);
+        }
+      };
+      reader.onabort = function(e) {
+        if(this.props.onAbortCallback){
+          this.props.onAbortCallback(e);
+        }
+      };
+
       reader.readAsText(file);
     }
   }
