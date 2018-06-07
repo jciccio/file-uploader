@@ -59,7 +59,7 @@ Optionally you can handle errors with the following props:
 # Changelog
 
 ### v0.1.8
-* Added support for abort and error handling
+* Added callback support for abort and error handling
 
 
 # License 
