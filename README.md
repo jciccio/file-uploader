@@ -1,3 +1,9 @@
+
+![npm](https://img.shields.io/npm/dt/file-uploader-js.svg)
+![npm](https://img.shields.io/npm/v/file-uploader-js.svg)
+![npm](https://img.shields.io/npm/l/file-uploader-js.svg)
+
+
 # file-uploader
 React JS File Uploader Component
 
