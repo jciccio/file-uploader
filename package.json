@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-js",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "React JS File uploader handler component. Returns local uploaded file contents via callback",
   "main": "build/index.js",
   "peerDependencies": {

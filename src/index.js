@@ -3,6 +3,13 @@ import "babel-polyfill";
 
 import "./fileUploader.css";
 
+
+/**
+ * File Uploader component
+ *
+ * @version 0.1.10
+ * @author [Jose Antonio Ciccio](https://github.com/jciccio)
+ */
 class FileUploader extends Component {
   constructor(props) {
     super(props);
