@@ -22,6 +22,7 @@ class App extends Component {
             uploadedFileCallback={e => {
               this.uploadedCsv(e);
             }}
+            accept=".csv"
           />
         </div>
       </div>

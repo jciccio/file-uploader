@@ -12,6 +12,7 @@ React JS File Uploader Component
 Simple react file upload component with loading throbber. 
 Abstracts the FE loading functionality and invokes a callback function once the file has been already loaded with the appropriate data.
 This was originally thought for text files.
+Can accept specific file types if needed
 
 # Installation
 
@@ -37,7 +38,9 @@ For example:
 
 ```javascript
 <FileUploader
+  accept=".csv"
   title="Please upload a CSV file"
+  titleCss={{ color: "#000", fontFamily: "arial" }}
   uploadedFileCallback={e => {
     this.uploadedCsv(e);
   }}
@@ -53,16 +56,32 @@ uploadedCsv(fileData) {
 }
 ```
 
+# Props
+
 Props available:
-* title (title that will have the upload component section as a label)
-* uploadedFileCallback (callback function that will be invoked)
+* `title` (title that will have the upload component section as a label)
+* `uploadedFileCallback` (callback function that will be invoked)
+* `accept` (Types you want to filter and accept for uploads e.g ".csv")
 
 Optionally you can handle errors with the following props:
 
 * `onErrorCallback` (Error uploading and reading the file)
 * `onAbortCallback` (Operation aborted)
 
+| Name        | Type            | Mandatory | Description  
+| ------------- |:-------------:| -----:|:-----|
+| title      | String | N | Title you want to have in the uploader |
+| uploadedFileCallback | Function callback     | Y|  Function to call on loaded data |
+| accept | String    | N|  Filter to determine what file types you want to upload |
+| onErrorCallback | Function callback    | N|  Function to call on loading error |
+| onAbortCallback | Function callback    | N|  Function to call on loading abort |
+| titleCss | Object    | N|  Styling for title |
+
 # Changelog
+
+### v0.2.0
+* Added accept prop
+* Added styling prop for title
 
 ### v0.1.8
 * Added callback support for abort and error handling

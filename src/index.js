@@ -52,12 +52,21 @@ class FileUploader extends Component {
   }
 
   render() {
+    let accept = "";
+    if (this.props.accept !== undefined){
+      accept = this.props.accept;
+    }
     return (
       <div className="fileUpload">
-        <label>{this.props.title}</label>
+        <label style={this.props.titleCss}>{this.props.title}</label>
         <div className="itemUpload">
           {this.state.showLoader ? <div className="loader"></div> : null}
-          <input type="file" name="fileUpload" onChange={this.uploadFile} />
+          <input 
+            type="file" 
+            name="fileUpload" 
+            onChange={this.uploadFile} 
+            accept={accept}
+          />
         </div>  
       </div>
     );
