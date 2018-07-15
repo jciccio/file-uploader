@@ -42,7 +42,10 @@ class FileUploader extends Component {
         }
       };
 
-      reader.readAsText(file);
+      if(this.props.isBinary)
+        reader.readAsBinaryString(file);
+      else
+        reader.readAsText(file);
     }
   }
 

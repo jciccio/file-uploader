@@ -76,8 +76,12 @@ Optionally you can handle errors with the following props:
 | onErrorCallback | Function callback    | N|  Function to call on loading error |
 | onAbortCallback | Function callback    | N|  Function to call on loading abort |
 | titleCss | Object    | N|  Styling for title |
+| isBinary | present? | N| Is the file binary? Text file as default
 
 # Changelog
+
+### v0.2.1
+* Read binary files
 
 ### v0.2.0
 * Added accept prop
