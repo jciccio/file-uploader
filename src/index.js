@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "babel-polyfill";
-
+import PropTypes from 'prop-types';
 import "./fileUploader.css";
 
 
 /**
  * File Uploader component
- *
- * @version 0.1.10
  * @author [Jose Antonio Ciccio](https://github.com/jciccio)
  */
+
+
+
+
 class FileUploader extends Component {
   constructor(props) {
     super(props);
@@ -75,5 +77,15 @@ class FileUploader extends Component {
     );
   }
 }
+
+FileUploader.propTypes = {
+  title: PropTypes.string,
+  uploadedFileCallback:  PropTypes.func.isRequired,
+  accept: PropTypes.string,
+  onErrorCallback:  PropTypes.func,
+  onAbortCallback:  PropTypes.func,
+  titleCss: PropTypes.object,
+  isBinary: PropTypes.bool
+};
 
 export default FileUploader;

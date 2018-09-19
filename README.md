@@ -80,6 +80,9 @@ Optionally you can handle errors with the following props:
 
 # Changelog
 
+### v0.2.2
+* Bug fixes typecheck added
+
 ### v0.2.1
 * Read binary files
 
