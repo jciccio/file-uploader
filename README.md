@@ -14,6 +14,9 @@ Abstracts the FE loading functionality and invokes a callback function once the 
 This was originally thought for text files.
 Can accept specific file types if needed
 
+**How to thank me?**
+Just click on ⭐️ button :)
+
 # Installation
 
 Install it from npm and include it in your React build process (using Webpack, Browserify, etc).
@@ -96,4 +99,4 @@ Optionally you can handle errors with the following props:
 
 # License 
 
-Licensed under the MIT License.
+Licensed under the MIT License © [jciccio](https://www.npmjs.com/~jciccio)
