@@ -6,6 +6,7 @@ import './App.css';
 class App extends Component {
 
   uploadedCsv(fileData) {
+    debugger;
     console.log(fileData);
   }
 

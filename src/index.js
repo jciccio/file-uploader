@@ -47,7 +47,7 @@ class FileUploader extends Component {
       if(this.props.isBinary)
         reader.readAsBinaryString(file);
       else
-        reader.readAsText(file);
+        reader.readAsText(file,"iso-8859-1");
     }
   }
 
