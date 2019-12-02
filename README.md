@@ -80,8 +80,14 @@ Optionally you can handle errors with the following props:
 | onAbortCallback | Function callback    | N|  Function to call on loading abort |
 | titleCss | Object    | N|  Styling for title |
 | isBinary | present? | N| Is the file binary? Text file as default
+| customLimitTextCSS | Object | N| Object to customize error title
+| byteLimit | Number | N| Number in bytes to determine file size limit
 
 # Changelog
+
+### v0.2.7
+* Added props to have a hard file size limit `byteLimit`
+* Added new error message if the file exceeds the limit, can be configured with `customLimitTextCSS` prop
 
 ### v0.2.2
 * Bug fixes typecheck added

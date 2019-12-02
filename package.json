@@ -1,6 +1,6 @@
 {
   "name": "file-uploader-js",
-  "version": "0.2.4",
+  "version": "0.2.7",
   "description": "React JS File uploader handler component with loading process and error management. Returns local uploaded file contents via callback",
   "main": "build/index.js",
   "peerDependencies": {
@@ -31,8 +31,7 @@
     "babel-runtime": "^6.3.19",
     "babel-preset-env": "^1.5.1",
     "style-loader": "^0.21.0",
-    "css-loader": "^0.28.11",
-    "babel-polyfill": "^6.26.0"
+    "css-loader": "^0.28.11"
   },
   "repository": {
     "type": "git",

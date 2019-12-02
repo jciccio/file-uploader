@@ -24,6 +24,11 @@ class App extends Component {
               this.uploadedCsv(e);
             }}
             accept=".csv"
+            fileSizeLimit="100000"
+            customLimitTextCSS={{ 'font-family': 'arial',
+                'color': '#b00e05',
+                'font-size': '14px'
+              }}
           />
         </div>
       </div>

@@ -9,16 +9,15 @@ import "./fileUploader.css";
  * @author [Jose Antonio Ciccio](https://github.com/jciccio)
  */
 
-
-
-
 class FileUploader extends Component {
   constructor(props) {
     super(props);
     this.uploadFile = this.uploadFile.bind(this);
     this.state = {
       content: null,
-      showLoader: false
+      showLoader: false,
+      fileSize: 0,
+      sizeExceeded: false
     };
   }
 
@@ -30,17 +29,35 @@ class FileUploader extends Component {
       var context = this;
       reader.onload = function(e) {
         var contents = e.target.result;
-        context.saveContents(contents);
-        context.setState({showLoader: false});
+
+        var _size = contents.length;
+        var fSExt = new Array('Bytes', 'KB', 'MB', 'GB'),
+        i=0;while(_size>900){_size/=1024;i++;}
+        var exactSize = (Math.round(_size*100)/100)+' '+fSExt[i];
+
+        if(context.props.fileSizeLimit === undefined || contents.length < parseInt( context.props.fileSizeLimit)){
+          context.saveContents(contents);
+          context.setState({sizeExceeded: false});
+        }
+        else{
+          context.setState({sizeExceeded: true});
+        }
+        context.setState({
+          showLoader: false, 
+          fileSize: exactSize
+        });
+
       };
       reader.onerror = function(e) {
         if(this.props.onErrorCallback){
           this.props.onErrorCallback(e);
+          context.setState({showLoader: false});
         }
       };
       reader.onabort = function(e) {
         if(this.props.onAbortCallback){
           this.props.onAbortCallback(e);
+          context.setState({showLoader: false});
         }
       };
 
@@ -55,6 +72,19 @@ class FileUploader extends Component {
     this.setState({ content });
     this.props.uploadedFileCallback(content);
   }
+
+  renderFileLimitExceeded(){
+    let text = this.props.customLimitText ? this.props.customLimitText : "File size exceeds "+(this.props.fileSizeLimit/1000)+"MB limit";
+    if (this.state.sizeExceeded){
+      return (
+        <div style={this.props.customLimitTextCSS}>{text}</div>
+      );
+    }
+    else{
+      return null;
+    }
+  }
+
 
   render() {
     let accept = "";
@@ -72,6 +102,7 @@ class FileUploader extends Component {
             onChange={this.uploadFile} 
             accept={accept}
           />
+          {this.renderFileLimitExceeded()}
         </div>  
       </div>
     );
@@ -85,7 +116,9 @@ FileUploader.propTypes = {
   onErrorCallback:  PropTypes.func,
   onAbortCallback:  PropTypes.func,
   titleCss: PropTypes.object,
-  isBinary: PropTypes.bool
+  customLimitTextCSS: PropTypes.object,
+  isBinary: PropTypes.bool,
+  byteLimit: PropTypes.number
 };
 
 export default FileUploader;
