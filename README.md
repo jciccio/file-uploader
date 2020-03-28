@@ -85,6 +85,10 @@ Optionally you can handle errors with the following props:
 
 # Changelog
 
+### v0.3.0
+* Dependencies updated
+* Overall package size optimized
+
 ### v0.2.7
 * Added props to have a hard file size limit `byteLimit`
 * Added new error message if the file exceeds the limit, can be configured with `customLimitTextCSS` prop
