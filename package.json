@@ -4,10 +4,8 @@
   "description": "React JS File uploader handler component with loading process and error management. Returns local uploaded file contents via callback",
   "main": "build/index.js",
   "peerDependencies": {
-    "react": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "react": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
