@@ -4,11 +4,10 @@
   "description": "React JS File uploader handler component with loading process and error management. Returns local uploaded file contents via callback",
   "main": "build/index.js",
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "react": "^16.0.0",
-    "@babel/polyfill": "^7.8.7"
+    "react": "^16.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,6 +20,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
     "babel-loader": "^8.0.6",

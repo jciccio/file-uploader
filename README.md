@@ -15,7 +15,9 @@ This was originally thought for text files.
 Can accept specific file types if needed
 
 **How to thank me?**
-Just click on ⭐️ button :)
+Just click on ⭐️ button or buy me a tea using the donation button below :)
+
+
 
 # Installation
 
@@ -30,7 +32,7 @@ npm i file-uploader-js
 Import `FileUploader` in your react component.
 
 ```
-import FileUploader from 'file-uploader';
+import FileUploader from 'file-uploader-js';
 ```
 
 and specify the callback function you want to call when the file is loaded.
@@ -82,6 +84,17 @@ Optionally you can handle errors with the following props:
 | isBinary | present? | N| Is the file binary? Text file as default
 | customLimitTextCSS | Object | N| Object to customize error title
 | byteLimit | Number | N| Number in bytes to determine file size limit
+
+
+# Donations
+
+If you think that any information you obtained here is useful and worth of some money and are willing to pay for it, feel free to send any amount through Paypal :)
+
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2MSMEVFF9P33N)
+
+You can also follow me on Patreon:
+https://patreon.com/Jacware
+
 
 # Changelog
 
