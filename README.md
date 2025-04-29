@@ -27,6 +27,10 @@ Install it from npm and include it in your React build process (using Webpack, B
 npm i file-uploader-js
 ```
 
+```
+yarn add file-uploader-js
+```
+
 # Usage
 
 Import `FileUploader` in your react component.
@@ -97,6 +101,11 @@ https://patreon.com/Jacware
 
 
 # Changelog
+
+### v0.3.3
+* Dependencies updated
+* React version updated
+* Overall package size optimized
 
 ### v0.3.0
 * Dependencies updated
