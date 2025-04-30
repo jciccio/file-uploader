@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import FileUploader from 'file-uploader-js';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
 
-  uploadedCsv(fileData) {
-    console.log(fileData);
+  uploadedCsv(file) {
+    // Check the data type received from the uploader
+    if (file.data) {
+      const blob = new File([file.data], file.filename, { type: 'application/pdf' });
+      console.log('📦 File size:', blob.size);
+
+      // Test
+      const fileURL = URL.createObjectURL(blob);
+      window.open(fileURL);
+    } else {
+      console.error('No data received from file uploader.');
+    }
   }
 
   render() {
@@ -18,16 +27,18 @@ class App extends Component {
 
         <div>
           <FileUploader
+            isBinary={true}  // Set to true to handle binary files
             title="Please upload a CSV file"
-            uploadedFileCallback={e => {
-              this.uploadedCsv(e);
+            uploadedFileCallback={(file) => {
+              this.uploadedCsv(file);  // Pass the file data to the callback
             }}
-            accept=".csv, .pdf"
-            maxFileSizeMB="1"
-            customLimitTextCSS={{ 'fontFamily': 'arial',
-                'color': '#b00e05',
-                'fontSize': '14px'
-              }}
+            accept=".csv, .pdf"  // Accept .csv and .pdf files
+            maxFileSizeMB="1"  // Limit size to 1MB
+            customLimitTextCSS={{
+              fontFamily: 'arial',
+              color: '#b00e05',
+              fontSize: '14px'
+            }}
           />
         </div>
       </div>

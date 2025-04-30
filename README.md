@@ -122,6 +122,9 @@ https://patreon.com/Jacware
 
 # Changelog
 
+### v0.5.1
+* Fixed read as binary to use modern browser standards.
+
 ### v0.5.0
 
 #### Breaking changes:
