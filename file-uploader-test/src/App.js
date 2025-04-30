@@ -23,11 +23,11 @@ class App extends Component {
             uploadedFileCallback={e => {
               this.uploadedCsv(e);
             }}
-            accept=".csv"
-            fileSizeLimit="100000"
-            customLimitTextCSS={{ 'font-family': 'arial',
+            accept=".csv, .pdf"
+            maxFileSizeMB="1"
+            customLimitTextCSS={{ 'fontFamily': 'arial',
                 'color': '#b00e05',
-                'font-size': '14px'
+                'fontSize': '14px'
               }}
           />
         </div>

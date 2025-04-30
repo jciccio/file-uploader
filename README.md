@@ -4,20 +4,31 @@
 ![npm](https://img.shields.io/npm/l/file-uploader-js.svg)
 
 
-# file-uploader
+# react-js-file-uploader
 React JS File Uploader Component
 
 # Description
 
-Simple react file upload component with loading throbber. 
-Abstracts the FE loading functionality and invokes a callback function once the file has been already loaded with the appropriate data.
-This was originally thought for text files.
-Can accept specific file types if needed
+A customizable React file upload component with built-in loading indicator (throbber) and size validation. It simplifies file upload handling by abstracting front-end logic and providing a clean callback interface once the file is fully loaded.
+
+Some key features are:
+
+## Features:
+* Displays a loading spinner while the file is being read.
+
+* Invokes a callback (uploadedFileCallback) with the file's content, name, size, and last modified date after successful loading.
+
+* Supports validation of maximum file size (in MB or bytes).
+
+* Allows restriction of accepted file types (e.g., .csv, .pdf,.docx).
+
+* Handles read errors (onErrorCallback) and aborts (onAbortCallback) gracefully.
+
+* Offers customization of UI text and styles via props.
+
 
 **How to thank me?**
 Just click on ⭐️ button or buy me a tea using the donation button below :)
-
-
 
 # Installation
 
@@ -26,6 +37,7 @@ Install it from npm and include it in your React build process (using Webpack, B
 ```
 npm i file-uploader-js
 ```
+Or if you use yarn, you can execute: 
 
 ```
 yarn add file-uploader-js
@@ -59,9 +71,16 @@ For example:
 And then define the callback function
 
 ```javascript
-uploadedCsv(fileData) {
-    console.log(fileData);
-    //Do stuff with the loaded file data
+    uploadedCsv(fileData) {
+      console.log(fileData);
+      //Do stuff with the loaded file data
+      //It comes in an object form
+      //  {
+      //    filename: string, 
+      //    data: file uploaded data content, 
+      //    lastModified: date, 
+      //   size: in bytes
+      //  }
 }
 ```
 
@@ -88,6 +107,7 @@ Optionally you can handle errors with the following props:
 | isBinary | present? | N| Is the file binary? Text file as default
 | customLimitTextCSS | Object | N| Object to customize error title
 | byteLimit | Number | N| Number in bytes to determine file size limit
+| maxFileSizeMB| Number | N | File size max amount that can be received in MB (e.g 0.1, 100, 10)
 
 
 # Donations
@@ -102,7 +122,27 @@ https://patreon.com/Jacware
 
 # Changelog
 
-### v0.3.3
+### v0.5.0
+
+#### Breaking changes:
+* Renaming: fileSizeLimit to maxFileSizeBytes
+* Changed callback function to return filename and data uploaded
+instead of receiving just the content of the uploaded file you will receive { filename: "filename", content: blob}
+This can be extended in the future to add more elements.
+* To make things easier created a new prop: maxFileSizeMB
+
+#### Deprecations:
+* Deprecated prop maxFileSizeBytes
+
+#### Other: 
+* Fixed logic issue with max file size limit
+
+### v0.4.0
+* No breaking changes besides all dependencies updated
+* Dependencies updated
+* Overall package size optimized
+
+### v0.3.4
 * Dependencies updated
 * React version updated
 * Overall package size optimized
