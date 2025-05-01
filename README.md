@@ -122,6 +122,10 @@ https://patreon.com/Jacware
 
 # Changelog
 
+### v0.5.2
+* Code refactors to make the component more performant
+* Binary read fixes
+  
 ### v0.5.1
 * Fixed read as binary to use modern browser standards.
 
