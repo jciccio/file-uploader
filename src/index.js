@@ -42,14 +42,7 @@ class FileUploader extends Component {
           i++;
         }
         var exactSize = Math.round(size * 100) / 100 + ' ' + fSExt[i];
-
-        console.log("File size in bytes: " + fileSizeInBytes);
-        console.log("context.props.maxFileSizeMB: " + context.props.maxFileSizeMB);
-
-
         const maxSizeBytes = context.props.maxFileSizeMB * 1024 * 1024;
-
-
         if (context.props.maxFileSizeMB === undefined || fileSizeInBytes < maxSizeBytes) {
           context.saveContents(contents);
           context.setState({ sizeExceeded: false });
@@ -95,21 +88,7 @@ class FileUploader extends Component {
       }
     );
   }
-/*
-  renderFileLimitExceeded(){
-    let text = this.props.customLimitText
-      ? this.props.customLimitText
-      : "File size exceeds " + this.props.maxFileSizeMB + "MB limit";
-    if (this.state.sizeExceeded){
-      return (
-        <div style={this.props.customLimitTextCSS}>{text}</div>
-      );
-    }
-    else{
-      return null;
-    }
-  }
-*/
+
   renderFileLimitExceeded() {
     if (!this.state.sizeExceeded) return null;
 
@@ -153,28 +132,6 @@ class FileUploader extends Component {
   }
 
 
-  /*render() {
-    let accept = "";
-    if (this.props.accept !== undefined){
-      accept = this.props.accept;
-    }
-    return (
-      <div className="fileUpload">
-        <label style={this.props.titleCss}>{this.props.title}</label>
-        <div className="itemUpload">
-          {this.state.showLoader ? <div className="loader"></div> : null}
-          <input 
-            type="file" 
-            name="fileUpload" 
-            onChange={this.uploadFile} 
-            accept={accept}
-          />
-          {this.renderFileLimitExceeded()}
-        </div>  
-      </div>
-    );
-  }*/
-
   render() {
     const content = (
       <>
@@ -193,7 +150,6 @@ class FileUploader extends Component {
 
     return <div className="fileUpload">{content}</div>;
   }
-
 }
 
   
