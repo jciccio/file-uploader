@@ -108,7 +108,10 @@ Optionally you can handle errors with the following props:
 | customLimitTextCSS | Object | N| Object to customize error title
 | byteLimit | Number | N| Number in bytes to determine file size limit
 | maxFileSizeMB| Number | N | File size max amount that can be received in MB (e.g 0.1, 100, 10)
-
+| renderInput| func | N | ({ onChange, accept }) => JSX - Customize Render input container 
+| renderLoader| func | N | () => JSX - Customize render loader
+| renderContainer| func | N | (maxSizeMB) => JSX - Customize render container
+| renderLimitText| func | N | (children) => JSX - Render Limit Test element
 
 # Donations
 
@@ -121,6 +124,34 @@ https://patreon.com/Jacware
 
 
 # Changelog
+
+### v0.6.0
+* New customization options: render input, loader, container and limit text
+
+You can pass down functions with JSX.
+
+```js
+<FileUploader
+  title="Upload Your File"
+  maxFileSizeMB={2}
+  uploadedFileCallback={(file) => console.log(file)}
+  renderInput={({ onChange, accept }) => (
+    <button onClick={() => document.getElementById("hiddenUpload").click()}>
+      Custom Upload Button
+      <input
+        id="hiddenUpload"
+        type="file"
+        accept={accept}
+        onChange={onChange}
+        style={{ display: "none" }}
+      />
+    </button>
+  )}
+  renderLoader={() => <span>Loading...</span>}
+  renderLimitText={(max) => <p style={{ color: "red" }}>Too big! Max {max}MB.</p>}
+  renderContainer={(children) => <section className="custom-wrapper">{children}</section>}
+/>
+```
 
 ### v0.5.1
 * Fixed read as binary to use modern browser standards.

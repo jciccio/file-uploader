@@ -95,7 +95,7 @@ class FileUploader extends Component {
       }
     );
   }
-
+/*
   renderFileLimitExceeded(){
     let text = this.props.customLimitText
       ? this.props.customLimitText
@@ -109,9 +109,51 @@ class FileUploader extends Component {
       return null;
     }
   }
+*/
+  renderFileLimitExceeded() {
+    if (!this.state.sizeExceeded) return null;
+
+    if (this.props.renderLimitText) {
+      return this.props.renderLimitText(this.props.maxFileSizeMB);
+    }
+
+    const text = this.props.customLimitText 
+      ? this.props.customLimitText 
+      : `File size exceeds ${this.props.maxFileSizeMB}MB limit`;
+
+    return <div style={this.props.customLimitTextCSS}>{text}</div>;
+  }
+
+  renderInput() {
+    const accept = this.props.accept || "";
+
+    if (this.props.renderInput) {
+      return this.props.renderInput({
+        onChange: this.uploadFile,
+        accept,
+      });
+    }
+
+    return (
+      <input
+        type="file"
+        name="fileUpload"
+        onChange={this.uploadFile}
+        accept={accept}
+      />
+    );
+  }
+
+  renderLoader() {
+    if (this.props.renderLoader) {
+      return this.props.renderLoader();
+    }
+
+    return <div className="loader" />;
+  }
 
 
-  render() {
+  /*render() {
     let accept = "";
     if (this.props.accept !== undefined){
       accept = this.props.accept;
@@ -131,8 +173,30 @@ class FileUploader extends Component {
         </div>  
       </div>
     );
+  }*/
+
+  render() {
+    const content = (
+      <>
+        <label style={this.props.titleCss}>{this.props.title}</label>
+        <div className="itemUpload">
+          {this.state.showLoader ? this.renderLoader() : null}
+          {this.renderInput()}
+          {this.renderFileLimitExceeded()}
+        </div>
+      </>
+    );
+
+    if (this.props.renderContainer) {
+      return this.props.renderContainer(content);
+    }
+
+    return <div className="fileUpload">{content}</div>;
   }
+
 }
+
+  
 
 FileUploader.propTypes = {
   title: PropTypes.string,
@@ -145,6 +209,10 @@ FileUploader.propTypes = {
   isBinary: PropTypes.bool,
   byteLimit: PropTypes.number,
   maxFileSizeMB: PropTypes.number,
+  renderInput: PropTypes.func, // ({ onChange, accept }) => JSX
+  renderLoader: PropTypes.func, // () => JSX
+  renderLimitText: PropTypes.func, // (maxSizeMB) => JSX
+  renderContainer: PropTypes.func, // (children) => JSX
 };
 
 export default FileUploader;

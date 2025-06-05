@@ -41,6 +41,36 @@ class App extends Component {
             }}
           />
         </div>
+
+
+        <div>
+          <FileUploader
+            title="Upload Your File"
+            maxFileSizeMB={2}
+            uploadedFileCallback={(file) => console.log(file)}
+            renderInput={({ onChange, accept }) => (
+              <button onClick={() => document.getElementById("hiddenUpload").click()} style={{borderRadius: '5px', }}>
+                Custom Upload Button
+                <input
+                  type="file" 
+                  name="fileUpload" 
+                     
+
+                  id="hiddenUpload"
+                  type="file"
+                  accept={accept}
+                  onChange={onChange}
+                  style={{ display: "none" }}
+                />
+              </button>
+            )}
+            renderLoader={() => <span>Loading...</span>}
+            renderLimitText={(max) => <p style={{ color: "red" }}>Too big! Max {max}MB.</p>}
+            renderContainer={(children) => <section className="custom-wrapper">{children}</section>}
+          />
+        </div>
+
+
       </div>
     );
   }
