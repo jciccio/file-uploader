@@ -125,6 +125,7 @@ https://patreon.com/Jacware
 
 # Changelog
 
+
 ### v0.6.0
 * New customization options: render input, loader, container and limit text
 
@@ -152,6 +153,11 @@ You can pass down functions with JSX.
   renderContainer={(children) => <section className="custom-wrapper">{children}</section>}
 />
 ```
+
+### v0.5.2
+* Code refactors to make the component more performant
+* Binary read fixes
+  
 
 ### v0.5.1
 * Fixed read as binary to use modern browser standards.
